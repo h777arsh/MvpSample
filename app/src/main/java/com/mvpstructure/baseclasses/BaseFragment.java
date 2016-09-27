@@ -14,26 +14,18 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.utils;
+package com.mvpstructure.baseclasses;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import com.bumptech.glide.Glide;
+import android.support.v4.app.Fragment;
 
 /**
  * @author Harsh
  * @version 1.0
  */
 
-public class ImageUtils {
+public abstract class BaseFragment extends Fragment {
 
-    public static void displayImage(Activity activity, String imageUrl, ImageView imageView, Drawable placeHolder) {
-        Glide.with(activity).load(imageUrl).into(imageView);
-    }
+  public void showProgress(boolean show) {
 
-    public static void displayImage(Activity activity, String imageUrl, ImageView imageView) {
-        displayImage(activity, imageUrl, imageView, null);
-    }
-
+  }
 }

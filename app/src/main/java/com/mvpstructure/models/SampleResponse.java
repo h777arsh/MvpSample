@@ -14,28 +14,52 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.baseclasses;
+package com.mvpstructure.models;
+
+import org.parceler.Parcel;
 
 /**
  * @author Harsh
  * @version 1.0
  */
-public abstract class BasePresenter<V extends BaseView> {
-  private V view;
 
-  final void attachView(V view) {
-    this.view = view;
+@Parcel(Parcel.Serialization.BEAN)
+public class SampleResponse {
+
+  private String userId;
+  private int id;
+  private String title;
+  private String body;
+
+  public String getUserId() {
+    return userId;
   }
 
-  final void detachView() {
-    this.view = null;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
-  public V getView() {
-    return view;
+  public int getId() {
+    return id;
   }
 
-  public boolean hasInternet() {
-    return view.hasInternet();
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getBody() {
+    return body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
   }
 }

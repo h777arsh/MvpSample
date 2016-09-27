@@ -14,17 +14,17 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.presenters;
+package com.mvpstructure.presenters;
 
-import com.imobdev.mvpstructure.baseclasses.AppInteractor;
-import com.imobdev.mvpstructure.baseclasses.BasePresenter;
-import com.imobdev.mvpstructure.baseclasses.InterActorCallback;
-import com.imobdev.mvpstructure.models.SampleResponse;
-import com.imobdev.mvpstructure.views.MainView;
+import com.mvpstructure.baseclasses.AppInteractor;
+import com.mvpstructure.baseclasses.BasePresenter;
+import com.mvpstructure.baseclasses.InterActorCallback;
+import com.mvpstructure.models.SampleResponse;
+import com.mvpstructure.views.MainView;
 import java.util.List;
 
-import static com.imobdev.mvpstructure.utils.AppUtils.log;
-import static com.imobdev.mvpstructure.utils.AppUtils.loge;
+import static com.mvpstructure.utils.AppUtils.log;
+import static com.mvpstructure.utils.AppUtils.loge;
 
 /**
  * @author Harsh
@@ -66,27 +66,6 @@ public class MainPresenter extends BasePresenter<MainView> {
         }
       });
     }
-  }
-
-  public void validate(String userName,String password){
-
-    appInteractor.doLogin(userName, password, new InterActorCallback<SampleResponse>() {
-      @Override public void onStart() {
-
-      }
-
-      @Override public void onResponse(SampleResponse response) {
-
-      }
-
-      @Override public void onFinish() {
-
-      }
-
-      @Override public void onError(Throwable message) {
-
-      }
-    });
   }
 }
 

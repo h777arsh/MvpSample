@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.fragment;
+package com.mvpstructure.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,12 +28,12 @@ import android.widget.LinearLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.imobdev.mvpstructure.R;
-import com.imobdev.mvpstructure.baseclasses.MVPFragment;
-import com.imobdev.mvpstructure.models.SampleResponse;
-import com.imobdev.mvpstructure.presenters.MainPresenter;
-import com.imobdev.mvpstructure.utils.AppUtils;
-import com.imobdev.mvpstructure.views.MainView;
+import com.mvpstructure.R;
+import com.mvpstructure.baseclasses.MVPFragment;
+import com.mvpstructure.models.SampleResponse;
+import com.mvpstructure.presenters.MainPresenter;
+import com.mvpstructure.utils.AppUtils;
+import com.mvpstructure.views.MainView;
 import java.util.List;
 
 /**

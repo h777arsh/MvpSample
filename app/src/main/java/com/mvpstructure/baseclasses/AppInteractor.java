@@ -14,10 +14,10 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.baseclasses;
+package com.mvpstructure.baseclasses;
 
-import com.imobdev.mvpstructure.models.SampleResponse;
-import com.imobdev.mvpstructure.rest.RestClient;
+import com.mvpstructure.models.SampleResponse;
+import com.mvpstructure.rest.RestClient;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;

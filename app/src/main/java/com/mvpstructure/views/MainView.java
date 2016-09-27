@@ -14,10 +14,10 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.views;
+package com.mvpstructure.views;
 
-import com.imobdev.mvpstructure.baseclasses.BaseView;
-import com.imobdev.mvpstructure.models.SampleResponse;
+import com.mvpstructure.baseclasses.BaseView;
+import com.mvpstructure.models.SampleResponse;
 import java.util.List;
 
 /**

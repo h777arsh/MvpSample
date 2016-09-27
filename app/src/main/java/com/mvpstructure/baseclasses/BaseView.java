@@ -14,37 +14,15 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.utils;
-
-import android.app.Activity;
-import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
+package com.mvpstructure.baseclasses;
 
 /**
  * @author Harsh
  * @version 1.0
  */
-public class AppUtils {
-  private static String TAG = "AppName";
+public interface BaseView {
 
-  public static boolean hasInternet() {
-    return true;
-  }
+  public boolean hasInternet();
 
-  public static String getText(TextView textView) {
-    return textView.getText().toString().trim();
-  }
-
-  public static void showToast(Activity activity, String message) {
-    Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
-  }
-
-  public static void log(String text) {
-    Log.d(TAG, text);
-  }
-
-  public static void loge(String text) {
-    Log.e(TAG, text);
-  }
+  public void showProgress(boolean show);
 }

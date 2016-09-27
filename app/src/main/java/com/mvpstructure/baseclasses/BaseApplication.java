@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.baseclasses;
+package com.mvpstructure.baseclasses;
 
 import android.app.Application;
 

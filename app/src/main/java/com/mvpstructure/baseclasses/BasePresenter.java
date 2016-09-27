@@ -14,15 +14,28 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.baseclasses;
+package com.mvpstructure.baseclasses;
 
 /**
  * @author Harsh
  * @version 1.0
  */
-public interface BaseView {
+public abstract class BasePresenter<V extends BaseView> {
+  private V view;
 
-  public boolean hasInternet();
+  final void attachView(V view) {
+    this.view = view;
+  }
 
-  public void showProgress(boolean show);
+  final void detachView() {
+    this.view = null;
+  }
+
+  public V getView() {
+    return view;
+  }
+
+  public boolean hasInternet() {
+    return view.hasInternet();
+  }
 }

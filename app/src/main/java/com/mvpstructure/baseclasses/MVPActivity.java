@@ -14,14 +14,14 @@
  *     limitations under the License.
  */
 
-package com.imobdev.mvpstructure.baseclasses;
+package com.mvpstructure.baseclasses;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.imobdev.mvpstructure.utils.AppUtils;
+import com.mvpstructure.utils.AppUtils;
 
 
 /**
