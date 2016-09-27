@@ -1,6 +1,6 @@
 Sample for MVP
 
-<h2>Copyright</h2>
+<h2>LICENCE</h2>
 
     Copyright 2016.
 
