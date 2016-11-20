@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-package com.mvpstructure.rest;
+package com.mvpstructure.networking;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;

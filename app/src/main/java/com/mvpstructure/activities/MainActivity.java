@@ -17,69 +17,42 @@
 package com.mvpstructure.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import android.support.annotation.Nullable;
 import com.mvpstructure.R;
-import com.mvpstructure.baseclasses.MVPActivity;
-import com.mvpstructure.fragment.MainFragment;
+import com.mvpstructure.baseclasses.BaseActivity;
+import com.mvpstructure.baseclasses.BaseApplication;
 import com.mvpstructure.models.SampleResponse;
-import com.mvpstructure.presenters.MainPresenter;
-import com.mvpstructure.utils.AppUtils;
+import com.mvpstructure.presenter.MainPresenter;
 import com.mvpstructure.views.MainView;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  * @author Harsh
  * @version 1.0
  */
-public class MainActivity extends MVPActivity<MainPresenter, MainView> implements MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
-  @BindView(R.id.btnSubmit) Button btnSubmit;
-  @BindView(R.id.container) FrameLayout container;
-  @BindView(R.id.activity_main) LinearLayout activityMain;
+  @Inject MainPresenter presenter;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    ButterKnife.bind(this);
-    btnSubmit.setOnClickListener(mOnClickListener);
+    ((BaseApplication) getApplication()).getComponent().inject(this);
+    presenter.attachView(this);
+    presenter.test();
 
-    if (savedInstanceState == null) {
-      addFragment(new MainFragment(), false);
-    }
   }
 
-  @NonNull @Override public MainPresenter createPresenter() {
-    return new MainPresenter();
+  @Override public boolean hasInternet() {
+    return false;
   }
 
-  @NonNull @Override public MainView attachView() {
-    return this;
-  }
+  @Override public void showProgress(boolean show) {
 
-  private View.OnClickListener mOnClickListener = new View.OnClickListener() {
-    @Override public void onClick(View view) {
-      getPresenter().loadData();
-    }
-  };
+  }
 
   @Override public void onResponse(List<SampleResponse> sampleResponse) {
-    AppUtils.showToast(this, "Data is loaded");
-  }
 
-  private void addFragment(Fragment fragment, boolean addToBackStack) {
-    FragmentManager manager = getSupportFragmentManager();
-    FragmentTransaction transaction = manager.beginTransaction();
-    transaction.replace(R.id.container, fragment);
-    if (addToBackStack) transaction.addToBackStack(fragment.getClass().getSimpleName());
-    transaction.commit();
   }
 }

@@ -16,20 +16,13 @@
 
 package com.mvpstructure.baseclasses;
 
-
 /**
- * Created on 23/8/16.
+ * @author Harsh
+ * @version 1.0
  */
+public interface MvpView {
 
-public interface InterActorCallback<T> {
+  public boolean hasInternet();
 
-
-    public void onStart();
-
-    public void onResponse(T response);
-
-    public void onFinish();
-
-    public void onError(Throwable message);
-
+  public void showProgress(boolean show);
 }

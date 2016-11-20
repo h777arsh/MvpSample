@@ -16,7 +16,7 @@
 
 package com.mvpstructure.views;
 
-import com.mvpstructure.baseclasses.BaseView;
+import com.mvpstructure.baseclasses.MvpView;
 import com.mvpstructure.models.SampleResponse;
 import java.util.List;
 
@@ -28,6 +28,6 @@ import java.util.List;
 /**
  * V from MVP
  */
-public interface MainView extends BaseView {
+public interface MainView extends MvpView {
   public void onResponse(List<SampleResponse> sampleResponse);
 }

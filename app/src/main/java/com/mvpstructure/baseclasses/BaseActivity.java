@@ -26,8 +26,6 @@ import android.support.v7.app.AppCompatActivity;
 public class BaseActivity extends AppCompatActivity {
 
 
-    public void showProgress(boolean show) {
-        //Show Progress bar here
-    }
+
 
 }

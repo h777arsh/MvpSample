@@ -17,6 +17,12 @@
 package com.mvpstructure.baseclasses;
 
 import android.app.Application;
+import android.content.Context;
+import com.mvpstructure.BuildConfig;
+import com.mvpstructure.component.AppComponent;
+import com.mvpstructure.component.DaggerAppComponent;
+import com.mvpstructure.networking.ApplicationModule;
+import timber.log.Timber;
 
 /**
  * @author Harsh
@@ -24,8 +30,32 @@ import android.app.Application;
  */
 
 public class BaseApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+
+  @Override public void onCreate() {
+    super.onCreate();
+
+    if (BuildConfig.DEBUG) {
+      Timber.plant(new Timber.DebugTree());
     }
+    getComponent();
+  }
+
+  public static BaseApplication get(Context context) {
+    return (BaseApplication) context.getApplicationContext();
+  }
+
+  AppComponent appComponent;
+
+  public AppComponent getComponent() {
+    if (appComponent == null) {
+      appComponent =
+          DaggerAppComponent.builder().applicationModule(new ApplicationModule(this)).build();
+    }
+    return appComponent;
+  }
+
+  // Needed to replace the component with a test specific one
+  public void setComponent(AppComponent appComponent) {
+    this.appComponent = appComponent;
+  }
 }

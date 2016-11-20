@@ -17,7 +17,6 @@
 package com.mvpstructure.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,19 +28,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.mvpstructure.R;
-import com.mvpstructure.baseclasses.MVPFragment;
-import com.mvpstructure.models.SampleResponse;
-import com.mvpstructure.presenters.MainPresenter;
-import com.mvpstructure.utils.AppUtils;
-import com.mvpstructure.views.MainView;
-import java.util.List;
+import com.mvpstructure.baseclasses.BaseFragment;
 
 /**
  * @author Harsh
  * @version 1.0
  */
 
-public class MainFragment extends MVPFragment<MainPresenter, MainView> implements MainView {
+public class MainFragment extends BaseFragment{
 
   @BindView(R.id.btnSubmit) Button btnSubmit;
   @BindView(R.id.container) FrameLayout container;
@@ -58,23 +52,15 @@ public class MainFragment extends MVPFragment<MainPresenter, MainView> implement
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    getPresenter().loadData();
+
   }
 
-  @Override public void onResponse(List<SampleResponse> sampleResponse) {
-    AppUtils.showToast(getActivity(), "Data Loaded");
-  }
+
 
   @Override public void onDestroyView() {
     super.onDestroyView();
     unbinder.unbind();
   }
 
-  @NonNull @Override public MainPresenter createPresenter() {
-    return new MainPresenter();
-  }
 
-  @NonNull @Override public MainView attachView() {
-    return this;
-  }
 }
